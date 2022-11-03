@@ -1,6 +1,7 @@
 FROM continuumio/anaconda3:4.4.0
-COPY . /usr/app/
+COPY . /app
 EXPOSE 5000
-WORKDIR /usr/app/
+WORKDIR /app
 RUN pip install -r requirements.txt
-CMD python app.py
+EXPOSE $PORT
+CMD gunicorn --workers=4 --bind 0.0.0.0:$PORT app:app
