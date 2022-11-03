@@ -1,5 +1,5 @@
 from app import index 
 
 def test_index():
-    assert index()=="this deploy is with a testfile Test"
+    assert index()=="this deploy is with a testfile"
 
